@@ -19,9 +19,11 @@
 
 /* Colors */
 :root {
-  --color-default: #364d59;
-  --color-primary: #feb900;
-  --color-secondary: #52565e;
+  --color-default: #303f47;
+  --color-primary: #70b93f;
+  --color-secondary: #454e48;
+  --color-bg: rgba(178, 231, 168, 0.3);
+  --color-bg2: rgba(178, 228, 61, 0.3);
 }
 
 /* Smooth scroll behavior */
@@ -44,7 +46,7 @@ a {
 }
 
 a:hover {
-  color: #ffc732;
+  color: #70b93f;
   text-decoration: none;
 }
 
@@ -66,7 +68,7 @@ section {
 }
 
 .section-bg {
-  background-color: #f5f6f7;
+  background-color: rgba(178, 228, 61, 0.3);
 }
 
 .section-header {
@@ -189,7 +191,7 @@ section {
 }
 
 .scroll-top:hover {
-  background: #ffc732;
+  background: #66a830;
   color: #fff;
 }
 
@@ -657,7 +659,7 @@ section {
 }
 
 .get-started .php-email-form button[type=submit]:hover {
-  background: rgba(254, 185, 0, 0.8);
+  background: rgba(122, 206, 13, 0.8);
 }
 
 @keyframes animate-loading {
@@ -673,6 +675,9 @@ section {
 /*--------------------------------------------------------------
 # Constructions Section
 --------------------------------------------------------------*/
+.constructions {
+  background-color: var(--color-bg);
+}
 .constructions .card-item {
   border: 1px solid rgba(82, 86, 94, 0.2);
   background: #fff;
@@ -978,6 +983,9 @@ section {
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
+.testimonials {
+  background: var(--color-bg2);
+}
 .testimonials .testimonial-wrap {
   padding-left: 50px;
 }
@@ -1090,9 +1098,71 @@ section {
   }
 }
 
+
+/* Styling for add form container */
+.testimonials .testimonial-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.testimonials .testimonial-form input[type="text"],
+.testimonials .testimonial-form input[type="email"],
+.testimonials .testimonial-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.testimonials .testimonial-form textarea {
+  resize: vertical;
+}
+
+.testimonial-form button[type="submit"] {
+  background: var(--color-primary);
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.testimonial-form button[type="submit"]:hover {
+  background: rgba(122, 206, 13, 0.8);
+}
+
+.testimonials .rating {
+  display: inline-block;
+}
+
+.testimonials .rating input {
+  display: none;
+}
+
+.testimonials .rating label {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  float: right;
+}
+
+.testimonials .rating label:before {
+  content: '\2605';
+  font-size: 24px;
+  color: #ddd;
+}
+
+.testimonials .rating input:checked ~ label:before {
+  color: #f90;
+}
 /*--------------------------------------------------------------
 # Alt Services Section
 --------------------------------------------------------------*/
+.alt-services{
+  background: var(--color-bg);
+}
+
 .alt-services .img-bg {
   background-size: cover;
   background-position: center center;
@@ -1168,6 +1238,10 @@ section {
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+.about{
+  background: var(--color-bg);
+}
+
 .about h2 {
   font-size: 48px;
   font-weight: 700;
@@ -1262,6 +1336,10 @@ section {
 /*--------------------------------------------------------------
 # Stats Counter Section
 --------------------------------------------------------------*/
+.stats-counter {
+  background: var(--color-bg2);
+}
+
 .stats-counter .stats-item {
   background: #fff;
   box-shadow: 0px 0 30px rgba(82, 86, 94, 0.05);
@@ -1292,6 +1370,10 @@ section {
 /*--------------------------------------------------------------
 # Our Team Section
 --------------------------------------------------------------*/
+.team{
+  background: var(--color-bg2);
+}
+
 .team .member {
   position: relative;
 }
@@ -2558,7 +2640,6 @@ section {
 --------------------------------------------------------------*/
 .footer {
   color: #fff;
-  background: url("../img/footer-bg.jpg") top center no-repeat;
   background-size: cover;
   font-size: 14px;
   padding: 80px 0 60px 0;
