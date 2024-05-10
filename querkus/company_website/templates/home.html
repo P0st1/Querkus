@@ -69,8 +69,8 @@
           <li><a href=" {% url 'home' %} " class="active">Domov</a></li>
           <li><a href=" {% url 'about_us' %} ">O nas</a></li>
           <li><a href=" {% url 'home' %} ">Storitve</a></li>
-          <li><a href=" {% url 'home' %} ">Projects</a></li>
-          <li><a href=" {% url 'home' %} ">Kontakt</a></li>
+          <li><a href=" {% url 'home' %} ">Projekti</a></li>
+          <li><a href=" {% url 'contact' %} ">Kontakt</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -235,15 +235,38 @@
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
+        
 
         <div class="section-header">
           <h2>Mnenja naših strank</h2>
-          <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p>
+          <p>Preberite, kaj menijo naše stranke o opravljenih storitvah.</p>
         </div>
 
         <div class="slides-2 swiper">
           <div class="swiper-wrapper">
-
+            {% if testimonials%}
+              {% for testimonial in testimonials %}
+              <div class="swiper-slide">
+                <div class="testimonial-wrap">
+                  <div class="testimonial-item">
+                    <img src=" {% static 'company_website/assets/img/testimonials/123456.webp' %} " class="testimonial-img" alt="">
+                    <h3>{{ testimonial.name }}</h3>
+                    <h4>{{ testimonial.role }}</h4>
+                    <div class="stars">
+                      {% for _ in ""|rjust:testimonial.rating %}
+                        <i class="bi bi-star-fill"></i>
+                      {% endfor %}
+                    </div>
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      {{ testimonial.message }}
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End testimonial item -->
+              {% endfor %}
+            {% else %}
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
@@ -255,13 +278,12 @@
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                    Primer mnenja stranke.
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
-
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
@@ -273,13 +295,13 @@
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                    Primer mnenja stranke.
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
-
+            
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
@@ -291,51 +313,18 @@
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                    Primer mnenja stranke.
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src=" {% static 'company_website/assets/img/testimonials/testimonials-4.jpg' %} " class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src=" {% static 'company_website/assets/img/testimonials/testimonials-5.jpg' %} " class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
+            {% endif %}
           </div>
           <div class="swiper-pagination"></div>
+          <div>
+            <p class="submit-text">Če želite podati svoje mnenje <a href="{% url 'about_us' %}#testimonial-form" class="submit-link">kliknite tukaj</a>.</p>          
+          </div>
         </div>
 
       </div>
@@ -371,10 +360,10 @@
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Bližnjice</h4>
             <ul>
-              <li><a href="#">Domov</a></li>
+              <li><a href="{% url 'home' %}">Domov</a></li>
               <li><a href="#">Storitve</a></li>
-              <li><a href="#">O nas</a></li>
-              <li><a href="#">Kontakt</a></li>
+              <li><a href="{% url 'about_us' %}">O nas</a></li>
+              <li><a href="{% url 'contact' %}">Kontakt</a></li>
             </ul>
           </div><!-- End footer links column-->
 

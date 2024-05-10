@@ -19,8 +19,8 @@
         <li><a href=" {% url 'home' %} " >Domov</a></li>
         <li><a href=" {% url 'about_us' %} " class="active">O nas</a></li>
         <li><a href=" {% url 'home' %} ">Storitve</a></li>
-        <li><a href=" {% url 'home' %} ">Projects</a></li>
-        <li><a href=" {% url 'home' %} ">Kontakt</a></li>
+        <li><a href=" {% url 'home' %} ">Projekti</a></li>
+        <li><a href=" {% url 'contact' %} ">Kontakt</a></li>
       </ul>
     </nav><!-- .navbar -->
 
@@ -160,7 +160,7 @@
             </div><!-- End Icon Box -->
           </div>
 
-          <div class="col-lg-6 img-bg" style="background-image: url( {% static 'company_website/assets/img/alt-services-2.jpg' %} );" data-aos="zoom-in" data-aos-delay="100"></div>
+          <div class="col-lg-6 img-bg" style="background-image: url( {% static 'company_website/assets/img/hero-carousel/zagar2.jpg' %} );" data-aos="zoom-in" data-aos-delay="100"></div>
         </div>
 
       </div>
@@ -174,12 +174,34 @@
 
         <div class="section-header">
           <h2>Mnenja naših strank</h2>
-          <p>Preberite, kaj menijo drugi o naših storitvah ali pa podajte svoje.</p>
+          <p>Preberite, kaj menijo naše stranke o opravljenih storitvah.</p>
         </div>
 
         <div class="slides-2 swiper">
           <div class="swiper-wrapper">
-
+            {% if testimonials%}
+              {% for testimonial in testimonials %}
+              <div class="swiper-slide">
+                <div class="testimonial-wrap">
+                  <div class="testimonial-item">
+                    <img src=" {% static 'company_website/assets/img/testimonials/123456.webp' %} " class="testimonial-img" alt="">
+                    <h3>{{ testimonial.name }}</h3>
+                    <h4>{{ testimonial.role }}</h4>
+                      <div class="stars">
+                        {% for _ in ""|rjust:testimonial.rating %}
+                          <i class="bi bi-star-fill"></i>
+                        {% endfor %}
+                      </div>
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      {{ testimonial.message }}
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End testimonial item -->
+              {% endfor %}
+            {% else %}
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
@@ -191,13 +213,12 @@
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                    Primer mnenja stranke.
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
-
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
@@ -209,13 +230,13 @@
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                    Primer mnenja stranke.                    
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
-
+            
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
@@ -227,20 +248,28 @@
                   </div>
                   <p>
                     <i class="bi bi-quote quote-icon-left"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                    Primer mnenja stranke.
                     <i class="bi bi-quote quote-icon-right"></i>
                   </p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
+            {% endif %}
           </div>
           <div class="swiper-pagination"></div>
         </div>
+        
+        <div class="section-header" style="margin-top:20px; padding-bottom: 50px;" id="testimonial-form">
+          <h2>Vaše mnenje</h2>
+          <p>Če smo za vas opravljali naše storitve, vas vljudno prosimo, da nam podate vaše mnenje.</p>
+        </div>
+        
         <form method="post" class="testimonial-form-container">
           {% csrf_token %}
           <div class="testimonial-form">
             <input type="text" name="name" placeholder="Ime in priimek" required>
             <input type="text" name="role" placeholder="Vaš poklic" required>
+            <textarea name="message" placeholder="Vaše mnenje" rows="3" required></textarea>
             <div class="rating">
               <input type="radio" id="star5" name="rating" value="5" required />
               <label for="star5" title="5 stars"></label>
@@ -253,11 +282,11 @@
               <input type="radio" id="star1" name="rating" value="1" />
               <label for="star1" title="1 star"></label>
             </div>
-            <textarea name="message" placeholder="Vaše mnenje" rows="3" required></textarea>
+            <div class="form-row">
             <button type="submit">Podajte mnenje</button>
           </div>
+          </div>
         </form>
-
       </div>
     </section><!-- End Testimonials Section -->
     {% endblock %}

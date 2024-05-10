@@ -22,8 +22,8 @@
   --color-default: #303f47;
   --color-primary: #70b93f;
   --color-secondary: #454e48;
-  --color-bg: rgba(178, 231, 168, 0.3);
-  --color-bg2: rgba(178, 228, 61, 0.3);
+  --color-bg: rgba(155, 233, 139, 0.3);
+  --color-bg2: rgba(115, 194, 99, 0.3);
 }
 
 /* Smooth scroll behavior */
@@ -109,6 +109,14 @@ section {
     max-width: 60%;
   }
 }
+@media (max-width: 768px) {
+  .section-header h2:before,
+  .section-header h2:after {
+    width: 10px; 
+  }
+}
+
+
 
 /*--------------------------------------------------------------
 # Breadcrumbs
@@ -1097,24 +1105,52 @@ section {
     left: auto;
   }
 }
+.testimonials .submit-text {
+  text-align: center;
+  color: #888; 
+} 
+
+.testimonials .submit-link {
+  color: #183111;
+  text-decoration: none;
+}
+
+.testimonials .submit-link:hover {
+  text-decoration: underline;
+}
 
 
 /* Styling for add form container */
 .testimonials .testimonial-form-container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc; 
+  border-radius: 5px;
 }
 .testimonials .testimonial-form input[type="text"],
-.testimonials .testimonial-form input[type="email"],
-.testimonials .testimonial-form textarea {
-  width: 100%;
+.testimonials .testimonial-form input[type="email"] {
+  width: calc(100% - 10px);
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  cursor: pointer;
   box-sizing: border-box;
 }
-
+.testimonials .testimonial-form textarea {
+  width: calc(100% - 10px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.testimonials .testimonial-form .form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .testimonials .testimonial-form textarea {
   resize: vertical;
 }
@@ -1126,6 +1162,7 @@ section {
   color: #fff;
   transition: 0.4s;
   border-radius: 4px;
+  margin-top: 5px;
 }
 
 .testimonial-form button[type="submit"]:hover {
@@ -1134,6 +1171,7 @@ section {
 
 .testimonials .rating {
   display: inline-block;
+  margin-bottom: 10px;
 }
 
 .testimonials .rating input {

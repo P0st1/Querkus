@@ -30,8 +30,6 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-
-
 def about_us(request):
     testimonials = Testimonial.objects.all()
     
@@ -48,3 +46,7 @@ def about_us(request):
       'form': form,
     }
     return render(request, 'about_us.html', context)
+  
+def contact(request):
+    context = {}
+    return render(request, 'contact.html', context)
