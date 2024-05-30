@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Storitve{% endblock %}
+
+{% block content %}
+<!-- ======= Header ======= -->
+<header id="header" class="header d-flex align-items-center">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+    <a href=" {% url 'home' %} " class="logo d-flex align-items-center">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      {% comment %} <img src=" {% static 'company_website/assets/img/logo.jpg' %} " alt="">  {% endcomment %}
+      <h1>Querkus<span>.</span></h1>
+    </a>
+
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href=" {% url 'home' %} " >Domov</a></li>
+        <li><a href=" {% url 'about_us' %} ">O nas</a></li>
+        <li><a href=" {% url 'services' %} " class="active">Storitve</a></li>
+        <li><a href=" {% url 'contact' %} ">Kontakt</a></li>
+      </ul>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url(' {% static 'company_website/assets/img/hero-carousel/drevo3.jpg' %} ');">
+      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>Storitve</h2>
+        <ol>
+          <li><a href=" {% url 'home' %} ">Domov</a></li>
+          <li>Storitve</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg2">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Storitve</h2>
+          <p>Oglejte si našo ponudbo storitev.</p>
+        </div>
+
+        <div class="row gy-4 justify-content-center">
+
+          {% for service in services %}
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="{{ service.icon }}"></i>
+              </div>
+              <h3>{{ service.title }}</h3>
+              <p>{{ service.description }}</p>
+              <a href="{% url 'service_detail' service.title %}" class="readmore stretched-link">Preberite več <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+        <!-- ======= Servie Cards Section ======= -->
+    <section id="services-cards" class="services-cards">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+            <h3>Obrezovanje dreves</h3>
+            <p>Strokovno obrezovanje dreves za izboljšanje njihove rasti in zdravja.</p>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-check2"></i> <span>Odstranjevanje suhih in obolelih vej</span></li>
+              <li><i class="bi bi-check2"></i> <span>Oblikovanje krošenj</span></li>
+              <li><i class="bi bi-check2"></i> <span>Povečanje varnosti</span></li>
+            </ul>
+          </div><!-- End feature item-->
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <h3>Odstranjevanje dreves</h3>
+            <p>Varno podiranje in odstranjevanje dreves z minimalnim vplivom na okolico.</p>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-check2"></i> <span>Načrtovanje in izvedba podiranja</span></li>
+              <li><i class="bi bi-check2"></i> <span>Odstranjevanje nevarnih dreves</span></li>
+              <li><i class="bi bi-check2"></i> <span>Odvoz lesenega materiala</span></li>
+            </ul>
+          </div><!-- End feature item-->
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+            <h3>Strokovna arboristična ocena</h3>
+            <p>Ocena zdravja in stabilnosti vaših dreves za zagotovitev varnosti in dolgoživosti.</p>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-check2"></i> <span>Diagnosticiranje bolezni in škodljivcev</span></li>
+              <li><i class="bi bi-check2"></i> <span>Ocena tveganja padca dreves</span></li>
+              <li><i class="bi bi-check2"></i> <span>Priporočila za nego in vzdrževanje</span></li>
+            </ul>
+          </div><!-- End feature item-->
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+            <h3>Sajenje in presajanje dreves</h3>
+            <p>Strokovno sajenje in presajanje dreves za trajnostni razvoj vašega prostora.</p>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-check2"></i> <span>Izbor primernih vrst dreves</span></li>
+              <li><i class="bi bi-check2"></i> <span>Pravilna priprava tal</span></li>
+              <li><i class="bi bi-check2"></i> <span>Skrb za drevesa po sajenju</span></li>
+            </ul>
+          </div><!-- End feature item-->
+
+        </div>
+      </div>
+    </section><!-- End Services Cards Section -->
+
+        </div>
+
+      </div>
+    </section><!-- End Servie Cards Section -->
+
+    {% endblock %}
+  </main><!-- End #main -->

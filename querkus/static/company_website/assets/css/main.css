@@ -22,8 +22,8 @@
   --color-default: #303f47;
   --color-primary: #70b93f;
   --color-secondary: #454e48;
-  --color-bg: rgba(155, 233, 139, 0.3);
-  --color-bg2: rgba(115, 194, 99, 0.3);
+  --color-bg: rgba(136, 172, 142, 0.37);
+  --color-bg2: rgba(224, 233, 213, 0.356);
 }
 
 /* Smooth scroll behavior */
@@ -68,9 +68,11 @@ section {
 }
 
 .section-bg {
-  background-color: rgba(178, 228, 61, 0.3);
+  background-color: var(--color-bg);
 }
-
+.section-bg2 {
+  background-color: var(--color-bg2);
+}
 .section-header {
   text-align: center;
   padding-bottom: 70px;
@@ -691,6 +693,7 @@ section {
   background: #fff;
   position: relative;
   border-radius: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .constructions .card-item .card-bg {
@@ -723,6 +726,7 @@ section {
   padding: 40px;
   background: #fff;
   height: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .services .service-item .icon {
@@ -1121,12 +1125,20 @@ section {
 
 
 /* Styling for add form container */
+.testimonials .section-bg {
+  background-color: #e0eedd50;
+  padding: 50px 0;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .testimonials .testimonial-form-container {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc; 
   border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .testimonials .testimonial-form input[type="text"],
 .testimonials .testimonial-form input[type="email"] {
@@ -1137,7 +1149,10 @@ section {
   border-radius: 5px;
   cursor: pointer;
   box-sizing: border-box;
+  background: #fff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
 }
+
 .testimonials .testimonial-form textarea {
   width: calc(100% - 10px);
   padding: 10px;
@@ -1193,6 +1208,13 @@ section {
 
 .testimonials .rating input:checked ~ label:before {
   color: #f90;
+}
+
+@media (max-width: 768px) {
+  .testimonials .testimonial-form-container {
+    border: none;
+    box-shadow: none;
+  }
 }
 /*--------------------------------------------------------------
 # Alt Services Section
@@ -1690,6 +1712,7 @@ section {
   padding: 10px 30px;
   border: 1px solid #d5d7da;
   margin-bottom: 20px;
+  position: fixed;
 }
 
 .service-details .services-list a {
@@ -1746,7 +1769,11 @@ section {
   margin-right: 8px;
   color: var(--color-primary);
 }
-
+@media (max-width: 768px) {
+  .service-details .services-list {
+    position: relative;
+  }
+}
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/

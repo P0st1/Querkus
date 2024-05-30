@@ -11,7 +11,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href=" {% static 'company_website/assets/img/favicon.png' %} " rel="icon">
+  <link href=" {% static 'company_website/assets/img/logo.jpg' %} " rel="icon">
   <link href=" {% static 'company_website/assets/img/apple-touch-icon.png' %} " rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -40,7 +40,7 @@
 </head>
 
 <body>
-  {% if messages %}
+{% comment %} {% if messages %}
   <div class="alert-container">
     {% for message in messages %}
       <div class="alert alert-success" role="alert">
@@ -48,7 +48,7 @@
       </div>
     {% endfor %}
   </div>
-{% endif %}
+{% endif %} {% endcomment %}
 
   
 
@@ -68,8 +68,7 @@
         <ul>
           <li><a href=" {% url 'home' %} " class="active">Domov</a></li>
           <li><a href=" {% url 'about_us' %} ">O nas</a></li>
-          <li><a href=" {% url 'home' %} ">Storitve</a></li>
-          <li><a href=" {% url 'home' %} ">Projekti</a></li>
+          <li><a href=" {% url 'services' %} ">Storitve</a></li>
           <li><a href=" {% url 'contact' %} ">Kontakt</a></li>
         </ul>
       </nav><!-- .navbar -->
@@ -115,7 +114,7 @@
   <main id="main">
 
     <!-- ======= Get Started Section ======= -->
-    <section id="get-started" class="get-started section-bg">
+    <section id="get-started" class="get-started section-bg2">
       <div class="container">
 
         <div class="row justify-content-between gy-4">
@@ -202,7 +201,7 @@
     </section>
 
     <!-- ======= Services Section ======= -->
-<section id="services" class="services section-bg">
+<section id="services" class="services section-bg2">
   <div class="container" data-aos="fade-up">
 
     <div class="section-header">
@@ -220,7 +219,7 @@
           </div>
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
-          <a href="" class="readmore stretched-link">Preberite več <i class="bi bi-arrow-right"></i></a>
+          <a href="{% url 'service_detail' service.title %}" class="readmore stretched-link">Preberite več <i class="bi bi-arrow-right"></i></a>
         </div>
       </div><!-- End Service Item -->
       {% endfor %}
@@ -346,6 +345,7 @@
               <p>
                 Polje pri Tržišču 19<br>
                 8296 Krmelj<br><br>
+                <strong>Vsak delovnik:</strong> <strong>7:00 - 17:00</strong><br>
                 <strong>Telefon:</strong> 051 744 453<br>
                 <strong>E-pošta:</strong> koncinajakob@gmail.com<br>
 
@@ -361,35 +361,22 @@
             <h4>Bližnjice</h4>
             <ul>
               <li><a href="{% url 'home' %}">Domov</a></li>
-              <li><a href="#">Storitve</a></li>
               <li><a href="{% url 'about_us' %}">O nas</a></li>
+              <li><a href="{% url 'services' %}">Storitve</a></li>
               <li><a href="{% url 'contact' %}">Kontakt</a></li>
             </ul>
           </div><!-- End footer links column-->
 
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Storitve</h4>
+            <ul>
+              <li><a href="#">Obrezovanje dreves</a></li>
+              <li><a href="#">Podiranje dreves</a></li>
+              <li><a href="#">Obrezovanje žive meje</a></li>
+            </ul>
+          </div><!-- End footer links column-->
+
           {% comment %} <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
-            </ul>
-          </div><!-- End footer links column-->
-
-          <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Hic solutasetp</h4>
-            <ul>
-              <li><a href="#">Molestiae accusamus iure</a></li>
-              <li><a href="#">Excepturi dignissimos</a></li>
-              <li><a href="#">Suscipit distinctio</a></li>
-              <li><a href="#">Dilecta</a></li>
-              <li><a href="#">Sit quas consectetur</a></li>
-            </ul>
-          </div><!-- End footer links column-->
-
-          <div class="col-lg-2 col-md-3 footer-links">
             <h4>Nobis illum</h4>
             <ul>
               <li><a href="#">Ipsam</a></li>
@@ -404,17 +391,18 @@
       </div>
     </div>
 
-    <div class="footer-legal text-center position-relative">
+  <div class="footer-legal text-center position-relative">
       <div class="container">
         <div class="copyright">
-          &copy; Copyright <strong><span>UpConstruction</span></strong>. All Rights Reserved
+          &copy; {% now "Y" %} Jakob Koncina S.P. All rights reserved.
+          {% comment %} &copy; Copyright <strong><span>UpConstruction</span></strong>. All Rights Reserved {% endcomment %}
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          {% comment %} Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>  {% endcomment %}
         </div>
       </div>
     </div>

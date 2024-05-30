@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.urls import reverse
+from django.core.mail import send_mail
+from django.conf import settings
 from .models import ServiceProcess, Service, Testimonial
 from .forms import InquiryForm, TestimonialForm
 
@@ -18,8 +20,20 @@ def home(request):
             email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
             message = form.cleaned_data['message']
-            print(name, email, phone, message)
-            messages.success(request, 'Your message was successfully sent!')
+            
+            # Send the email
+            formatted_message = f"Ime in priimek: {name}\nE-pošta: {email}\nTelefon: {phone}\nSporočilo: {message}"
+            try:
+                send_mail(
+                    subject="Nova stranka pošilja povpraševanje iz domače strani",
+                    message=formatted_message,
+                    from_email=settings.EMAIL_HOST_USER,
+                    recipient_list=['querkus0@gmail.com'],
+                )
+                messages.success(request, 'Your message was successfully sent!')
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                messages.error(request, 'An error occurred while sending the email.')
 
     context = {
         'service_process': service_process,
@@ -48,5 +62,42 @@ def about_us(request):
     return render(request, 'about_us.html', context)
   
 def contact(request):
-    context = {}
-    return render(request, 'contact.html', context)
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+        
+        # Format the email message
+        formatted_message = f"Ime in priimek: {name}\nE-pošta: {email}\nZadeva: {subject}\nSporočilo: {message}"
+        try:
+            send_mail(
+                subject="Nova stranka pošilja povpraševanje iz kontaktne strani",
+                message=formatted_message,
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=['querkus0@gmail.com'],
+            )
+            return redirect('contact')
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return render(request, 'contact.html', {'error': 'An error occurred while sending the email.'})
+    return render(request, 'contact.html', {})
+    
+def services(request):
+    service_process = ServiceProcess.objects.all()
+    services = Service.objects.all()
+
+    context = {
+        'service_process': service_process,
+        'services': services,
+    }
+    return render(request, 'services.html', context)
+
+def service_detail(request, title):
+    service = get_object_or_404(Service, title=title)
+    template_name = service.template  
+    print(service, template_name)
+    context = {
+        'service': service,
+    }
+    return render(request, template_name, context)

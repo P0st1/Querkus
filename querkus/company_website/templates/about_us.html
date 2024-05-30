@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}O nas{% endblock %}
 
 {% block content %}
 <!-- ======= Header ======= -->
@@ -8,7 +9,7 @@
 
     <a href=" {% url 'home' %} " class="logo d-flex align-items-center">
       <!-- Uncomment the line below if you also wish to use an image logo -->
-      <img src=" {% static 'company_website/assets/img/logo.png' %} " alt=""> 
+      {% comment %} <img src=" {% static 'company_website/assets/img/logo.jpg' %} " alt="">  {% endcomment %}
       <h1>Querkus<span>.</span></h1>
     </a>
 
@@ -18,8 +19,7 @@
       <ul>
         <li><a href=" {% url 'home' %} " >Domov</a></li>
         <li><a href=" {% url 'about_us' %} " class="active">O nas</a></li>
-        <li><a href=" {% url 'home' %} ">Storitve</a></li>
-        <li><a href=" {% url 'home' %} ">Projekti</a></li>
+        <li><a href=" {% url 'services' %} ">Storitve</a></li>
         <li><a href=" {% url 'contact' %} ">Kontakt</a></li>
       </ul>
     </nav><!-- .navbar -->
@@ -76,7 +76,7 @@
     </section>
     <!-- End About Section -->
 
-    <!-- ======= Stats Counter Section ======= -->
+    {% comment %} <!-- ======= Stats Counter Section ======= -->
     <section id="stats-counter" class="stats-counter section-bg">
       <div class="container">
 
@@ -107,7 +107,7 @@
               <i class="bi bi-people color-pink flex-shrink-0"></i>
               <div>
                 <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Priden delavec</p>
+                <p>Delavec</p>
               </div>
             </div>
           </div><!-- End Stats Item -->
@@ -115,7 +115,7 @@
         </div>
 
       </div>
-    </section><!-- End Stats Counter Section -->
+    </section><!-- End Stats Counter Section --> {% endcomment %}
 
 
     <!-- ======= Alt Services Section 2 ======= -->
@@ -168,7 +168,7 @@
 
 
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
+  <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
         
 
@@ -258,7 +258,9 @@
           </div>
           <div class="swiper-pagination"></div>
         </div>
-        
+    
+
+    <div class="section-bg">
         <div class="section-header" style="margin-top:20px; padding-bottom: 50px;" id="testimonial-form">
           <h2>Vaše mnenje</h2>
           <p>Če smo za vas opravljali naše storitve, vas vljudno prosimo, da nam podate vaše mnenje.</p>
@@ -288,7 +290,8 @@
           </div>
         </form>
       </div>
-    </section><!-- End Testimonials Section -->
+    </div><!-- End Testimonials Section -->
+  </section>
     {% endblock %}
   </main><!-- End #main -->
 
