@@ -29,29 +29,9 @@
 
   <!-- Template Main CSS File -->
   <link href=" {% static 'company_website/assets/css/main.css' %} " rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: UpConstruction
-  * Template URL: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
-{% comment %} {% if messages %}
-  <div class="alert-container">
-    {% for message in messages %}
-      <div class="alert alert-success" role="alert">
-        <i class="fas fa-check-circle"></i> {{ message }}
-      </div>
-    {% endfor %}
-  </div>
-{% endif %} {% endcomment %}
-
-  
-
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -112,7 +92,6 @@
   </section><!-- End Hero Section -->
 
   <main id="main">
-
     <!-- ======= Get Started Section ======= -->
     <section id="get-started" class="get-started section-bg2">
       <div class="container">
@@ -201,133 +180,133 @@
     </section>
 
     <!-- ======= Services Section ======= -->
-<section id="services" class="services section-bg2">
-  <div class="container" data-aos="fade-up">
-
-    <div class="section-header">
-      <h2>Storitve</h2>
-      <p>Oglejte si našo ponudbo storitev.</p>
-    </div>
-
-    <div class="row gy-4 justify-content-center">
-
-      {% for service in services %}
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative">
-          <div class="icon">
-            <i class="{{ service.icon }}"></i>
-          </div>
-          <h3>{{ service.title }}</h3>
-          <p>{{ service.description }}</p>
-          <a href="{% url 'service_detail' service.title %}" class="readmore stretched-link">Preberite več <i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div><!-- End Service Item -->
-      {% endfor %}
-
-    </div>
-
-  </div>
-</section><!-- End Services Section -->
-
-
-
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
+    <section id="services" class="services section-bg2">
       <div class="container" data-aos="fade-up">
-        
 
         <div class="section-header">
-          <h2>Mnenja naših strank</h2>
-          <p>Preberite, kaj menijo naše stranke o opravljenih storitvah.</p>
+          <h2>Storitve</h2>
+          <p>Oglejte si našo ponudbo storitev.</p>
         </div>
 
-        <div class="slides-2 swiper">
-          <div class="swiper-wrapper">
-            {% if testimonials%}
-              {% for testimonial in testimonials %}
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src=" {% static 'company_website/assets/img/testimonials/123456.webp' %} " class="testimonial-img" alt="">
-                    <h3>{{ testimonial.name }}</h3>
-                    <h4>{{ testimonial.role }}</h4>
-                    <div class="stars">
-                      {% for _ in ""|rjust:testimonial.rating %}
-                        <i class="bi bi-star-fill"></i>
-                      {% endfor %}
-                    </div>
-                    <p>
-                      <i class="bi bi-quote quote-icon-left"></i>
-                      {{ testimonial.message }}
-                      <i class="bi bi-quote quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-              {% endfor %}
-            {% else %}
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src=" {% static 'company_website/assets/img/testimonials/testimonials-1.jpg' %} " class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Primer mnenja stranke.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
+        <div class="row gy-4 justify-content-center">
+
+          {% for service in services %}
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="{{ service.icon }}"></i>
               </div>
-            </div><!-- End testimonial item -->
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src=" {% static 'company_website/assets/img/testimonials/testimonials-2.jpg' %} " class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Primer mnenja stranke.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-            
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src=" {% static 'company_website/assets/img/testimonials/testimonials-3.jpg' %} " class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Primer mnenja stranke.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-            {% endif %}
-          </div>
-          <div class="swiper-pagination"></div>
-          <div>
-            <p class="submit-text">Če želite podati svoje mnenje <a href="{% url 'about_us' %}#testimonial-form" class="submit-link">kliknite tukaj</a>.</p>          
-          </div>
+              <h3>{{ service.title }}</h3>
+              <p>{{ service.description }}</p>
+              <a href="{% url 'service_detail' service.title %}" class="readmore stretched-link">Preberite več <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+          {% endfor %}
+
         </div>
 
       </div>
-    </section><!-- End Testimonials Section --> 
+    </section><!-- End Services Section -->
+
+
+
+  <!-- ======= Testimonials Section ======= -->
+  <section id="testimonials" class="testimonials section-bg">
+    <div class="container" data-aos="fade-up">
+      
+
+      <div class="section-header">
+        <h2>Mnenja naših strank</h2>
+        <p>Preberite, kaj menijo naše stranke o opravljenih storitvah.</p>
+      </div>
+
+      <div class="slides-2 swiper">
+        <div class="swiper-wrapper">
+          {% if testimonials%}
+            {% for testimonial in testimonials %}
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src=" {% static 'company_website/assets/img/testimonials/123456.webp' %} " class="testimonial-img" alt="">
+                  <h3>{{ testimonial.name }}</h3>
+                  <h4>{{ testimonial.role }}</h4>
+                  <div class="stars">
+                    {% for _ in ""|rjust:testimonial.rating %}
+                      <i class="bi bi-star-fill"></i>
+                    {% endfor %}
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    {{ testimonial.message }}
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+            {% endfor %}
+          {% else %}
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="testimonial-item">
+                <img src=" {% static 'company_website/assets/img/testimonials/testimonials-1.jpg' %} " class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  Primer mnenja stranke.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="testimonial-item">
+                <img src=" {% static 'company_website/assets/img/testimonials/testimonials-2.jpg' %} " class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  Primer mnenja stranke.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+          
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="testimonial-item">
+                <img src=" {% static 'company_website/assets/img/testimonials/testimonials-3.jpg' %} " class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Store Owner</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  Primer mnenja stranke.
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+          {% endif %}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div>
+          <p class="submit-text">Če želite podati svoje mnenje <a href="{% url 'about_us' %}#testimonial-form" class="submit-link">kliknite tukaj</a>.</p>          
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Testimonials Section --> 
 
 
   </main><!-- End #main -->
@@ -347,7 +326,7 @@
                 8296 Krmelj<br><br>
                 <strong>Vsak delovnik:</strong> <strong>7:00 - 17:00</strong><br>
                 <strong>Telefon:</strong> 051 744 453<br>
-                <strong>E-pošta:</strong> koncinajakob@gmail.com<br>
+                <strong>E-pošta:</strong> querkus0@gmail.com<br>
 
               </p>
               <div class="social-links d-flex mt-3">
@@ -370,9 +349,9 @@
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Storitve</h4>
             <ul>
-              <li><a href="#">Obrezovanje dreves</a></li>
-              <li><a href="#">Podiranje dreves</a></li>
-              <li><a href="#">Obrezovanje žive meje</a></li>
+              {% for service in services%}
+              <li><a href="{% url 'service_detail' service.title %}">{{ service.title }}</a></li>
+              {% endfor %}
             </ul>
           </div><!-- End footer links column-->
 
@@ -427,5 +406,4 @@
   
 
 </body>
-
 </html>

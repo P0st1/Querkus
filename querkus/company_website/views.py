@@ -30,7 +30,11 @@ def home(request):
                     from_email=settings.EMAIL_HOST_USER,
                     recipient_list=['querkus0@gmail.com'],
                 )
-                messages.success(request, 'Your message was successfully sent!')
+                messages.success(request, 'Vaš obrazec je bil uspešno poslan. Kontaktirali vas bomo v kratkem.')
+                return render(request, 'success_message.html', {
+                    'name': name,
+                    'services': services,
+                })
             except Exception as e:
                 print(f"An error occurred: {e}")
                 messages.error(request, 'An error occurred while sending the email.')
@@ -46,6 +50,7 @@ def home(request):
 
 def about_us(request):
     testimonials = Testimonial.objects.all()
+    services = Service.objects.all()
     
     if request.method == 'POST':
         form = TestimonialForm(request.POST)
@@ -58,10 +63,12 @@ def about_us(request):
     context = {
       'testimonials': testimonials,
       'form': form,
+      'services': services,
     }
     return render(request, 'about_us.html', context)
   
 def contact(request):
+    services = Service.objects.all()
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -77,12 +84,20 @@ def contact(request):
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=['querkus0@gmail.com'],
             )
-            return redirect('contact')
+            messages.success(request, 'Vaš obrazec je bil uspešno poslan. Kontaktirali vas bomo v kratkem.')
+            return render(request, 'success_message.html', {
+                'name': name,
+                'services': services,
+                })
         except Exception as e:
             print(f"An error occurred: {e}")
             return render(request, 'contact.html', {'error': 'An error occurred while sending the email.'})
-    return render(request, 'contact.html', {})
-    
+    return render(request, 'contact.html', {'services': services})
+
+def success(request, name):
+    name = request.GET.get('name', '')
+    return render(request, 'success.html', {'name': name})
+
 def services(request):
     service_process = ServiceProcess.objects.all()
     services = Service.objects.all()
@@ -94,10 +109,11 @@ def services(request):
     return render(request, 'services.html', context)
 
 def service_detail(request, title):
+    services = Service.objects.all()
     service = get_object_or_404(Service, title=title)
     template_name = service.template  
-    print(service, template_name)
     context = {
         'service': service,
+        'services': services,
     }
     return render(request, template_name, context)

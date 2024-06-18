@@ -42,7 +42,7 @@
 </head>
 
 <body>
-  {% if messages %}
+{% comment %} {% if messages %}
   <div class="alert-container">
     {% for message in messages %}
       <div class="alert alert-success" role="alert">
@@ -50,7 +50,7 @@
       </div>
     {% endfor %}
   </div>
-{% endif %}
+{% endif %} {% endcomment %}
 
   <main>
   {% block content %}
@@ -95,9 +95,9 @@
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Storitve</h4>
             <ul>
-              <li><a href="#">Obrezovanje dreves</a></li>
-              <li><a href="#">Podiranje dreves</a></li>
-              <li><a href="#">Obrezovanje žive meje</a></li>
+              {% for service in services%}
+              <li><a href="{% url 'service_detail' service.title %}">{{ service.title }}</a></li>
+              {% endfor %}
             </ul>
           </div><!-- End footer links column-->
 

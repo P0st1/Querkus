@@ -44,8 +44,8 @@
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Service Details Section ======= -->
-    <section id="service-details" class="service-details">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <section id="service-details" class="service-details" style="background-color: rgba(215, 243, 220, 0.37);">
+      <div class="container" data-aos="fade-up" data-aos-delay="100" >
 
         <div class="row gy-4">
 
@@ -60,64 +60,64 @@
           <div class="col-lg-8">
             <img src="{% static 'company_website/assets/img/obrezovanje-dreves.jpg' %}" alt="" class="img-fluid services-img">
             
-              <!-- Zakaj se obrezuje drevo? -->
-              <section id="zakaj-obrezovanje-drevo">
-                <h3>Zakaj je pravilno obrezovanje dreves pomembno?</h3>
-                <p>Vsi se zavedamo, da so drevesa pomemben ekološki in sociološki dejavnik v našem okolju, a jih je potrebno tudi primerno vzdrževati. 
-                  Z obrezovanjem poskrbimo, da drevo ohranjamo in usmerjamo rast v želeno smer ter obliko; 
-                  odstranimo poškodovane in suhe veje, dvignemo profil krošnje ter skrajšamo veje, ki rastejo proti objektom. 
-                  Drevesa za razliko od ljudi ne zacelijo ran, temveč jih prerastejo, zato je pravilno obrezovanje toliko bolj pomembno, 
-                  da ne povzročimo prevelikih poškodb ali trajne škode drevesu. Pri obrezovanju sledimo najnovejšim standardom, 
-                  zato jih ne obglavljamo ali drastično nižamo vrhov. </p>
-              </section>
-      
-              <!-- Kdaj se obrezuje drevo? -->
-              <section id="kdaj-obrezovanje-drevo">
-                <h3>Kdaj se odločimo za obrezovanje drevesa?</h3>
-                <p>Drevesa je treba obrezovati že ko so majhna, saj zamujenega kasneje ne moremo nadoknaditi. 
-                  Za obrezovanje se lahko odločimo v kateremkoli letnem času, razen v hudi vročini ali mrazu, ker že to drevesu povzroča dovolj stresa. 
-                  Najbolj primeren čas je poleti, ko imajo drevesa največ listne mase, saj imajo posledično največ fotosinteze in najlažje zapirajo rane. 
-                  Sledimo najnovejšim standardom za obrezovanje dreves.</p>
-              </section>
-      
-              <!-- Cena obrezovanja -->
-              <section id="cena-obrezovanja">
-                <h3>Cena obrezovanja dreves</h3>
-                <p>Cena za obrezovanje dreves je nedvomno pomemben podatek za vsako stranko. 
-                  Brez predhodnega brezplačnega ogleda drevesa na lokaciji vam na žalost cene ne moremo povedati. 
-                  Na ceno del vpliva več dejavnikov, kot so: dostopnost drevesa, teren, neposredna bližina objektov (hiša, ograja, garaža, električna napeljava…), 
-                  tehnika obrezovanja in še marsikaj. Pri ogledu se s stranko pogovorimo, kaj si želi ter povemo, kaj bi bilo strokovno pravilno. 
-                  Tako da vedno na koncu pridemo do skupnega zaključka kjer je stranka zadovoljna, a je hkrati delo narejeno strokovno. 
-                  Po dogovoru odpeljemo vejevje in ostali material.</p>
-              </section>
+            <!-- Zakaj se obrezuje drevo? -->
+            <section id="zakaj-obrezovanje-drevo" class="pt-4 pb-4">
+              <h3>Zakaj je pravilno obrezovanje dreves pomembno?</h3>
+              <p>Vsi se zavedamo, da so drevesa pomemben ekološki in sociološki dejavnik v našem okolju, a jih je potrebno tudi primerno vzdrževati. 
+              Z obrezovanjem poskrbimo, da <strong>usmerjamo rast drevesa</strong> v želeno smer ter obliko; 
+              <strong>odstranimo poškodovane in suhe veje</strong>, <strong>dvignemo profil krošnje </strong>ter <strong>skrajšamo veje, ki rastejo proti objektom</strong>. 
+              Drevesa za razliko od ljudi ne zacelijo ran, temveč jih prerastejo, zato je pravilno obrezovanje toliko bolj pomembno, 
+              da ne povzročimo prevelikih poškodb ali trajne škode drevesu. Pri obrezovanju sledimo <strong>najnovejšim standardom</strong>.
+              </p>
+            </section>
 
-        </div>
+            <!-- Kdaj se obrezuje drevo? -->
+            <section id="kdaj-obrezovanje-drevo" class="pt-4 pb-4">
+              <h3>Kdaj se odločimo za obrezovanje drevesa?</h3>
+              <p>Obrezovanje dreves je priporočljivo v primeru, ko drevo postane preveliko za svoj prostor ali če ogroža vaš dom ali druge objekte zaradi padajočih vej. 
+                Prav tako je potrebno, če drevo kaže znake slabega zdravja ali nestabilnosti, kar lahko povzročijo močni vetrovi, žled ali težak sneg. 
+                Najbolj učinkovit čas za obrezovanje je poleti, ko je drevo aktivno in lahko hitreje zaceli rane, 
+                medtem ko je obrezovanje pozimi priporočljivo za lažji pregled krošnje in odstranjevanje suhih vej.</p>
+              <img src="{% static 'company_website/assets/img/winter-damage-to-trees.webp' %}" alt="" class="img-fluid">
+            </section>
 
-      </div>
-    </section><!-- End Service Details Section -->
-
-    {% block extrascripts %}
-    <script>
-      // Add event listener for scroll event
-      window.addEventListener('scroll', function() {
-        // Get the sections and links
-        var sections = document.querySelectorAll('.service-details section');
-        var links = document.querySelectorAll('.services-list a');
-    
-        // Loop through each section to find which one is in the viewport
-        sections.forEach(function(section, index) {
-          var rect = section.getBoundingClientRect();
-          if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-            // Remove active class from all links
-            links.forEach(function(link) {
-              link.classList.remove('active');
+            <!-- Cena obrezovanja -->
+            <section id="cena-obrezovanja" class="pt-4 pb-4">
+              <h3>Cena obrezovanja dreves</h3>
+              <p>Cena za obrezovanje dreves je nedvomno pomemben podatek za vsako stranko. 
+              Brez predhodnega brezplačnega ogleda drevesa na lokaciji vam na žalost cene ne moremo povedati. 
+              Na ceno del vpliva več dejavnikov, kot so: <strong>dostopnost drevesa, teren, neposredna bližina objektov (hiša, ograja, garaža, električna napeljava…), 
+              tehnika obrezovanja </strong>in še marsikaj. Pri ogledu se s stranko pogovorimo, kaj si želi ter povemo, kaj bi bilo strokovno pravilno. 
+              Na koncu vedno pridemo do skupnega zaključka kjer je stranka zadovoljna. 
+              Po dogovoru s stranko odpeljemo tudi vejevje in ostali material.</p>
+            </section>
+              
+            </div>
+            
+          </div>
+        </section><!-- End Service Details Section -->
+      {% block extrascripts %}
+        <script>
+          // Add event listener for scroll event
+          window.addEventListener('scroll', function() {
+            // Get the sections and links
+            var sections = document.querySelectorAll('.service-details section');
+            var links = document.querySelectorAll('.services-list a');
+        
+            // Loop through each section to find which one is in the viewport
+            sections.forEach(function(section, index) {
+              var rect = section.getBoundingClientRect();
+              if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                // Remove active class from all links
+                links.forEach(function(link) {
+                  link.classList.remove('active');
+                });
+                // Add active class to the corresponding link
+                links[index].classList.add('active');
+              }
             });
-            // Add active class to the corresponding link
-            links[index].classList.add('active');
-          }
-        });
-      });
-    </script>    
-    {% endblock %}
-    {% endblock %}
+          });
+        </script>    
+      {% endblock %}
+      {% endblock %}
   </main><!-- End #main -->

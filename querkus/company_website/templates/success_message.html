@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<style>
+  .thank-you-container {
+    text-align: center;
+    border: 2px solid #4CAF50; /* Green border */
+    padding: 40px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 50px;
+    background-color: rgba(136, 172, 142, 0.37);
+    background-size: cover;
+    color: white; /* Green text color */
+}
+
+.btn-green {
+    background-color: #4CAF50; /* Green background color */
+    color: #000; /* Black text color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    border: 1px solid #333;
+}
+
+.btn-green:hover {
+    background-color: #388E3C; /* Darker green on hover */
+    transform: translateY(-2px);
+    border-color: #555;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.thank-you-container {
+    animation: fadeIn 1.5s;
+}
+
+.h2 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+}
+
+.lead {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+</style>
+
+<!-- ======= Header ======= -->
+<header id="header" class="header d-flex align-items-center"> 
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+    <a href=" {% url 'home' %} " class="logo d-flex align-items-center">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      {% comment %} <img src=" {% static 'company_website/assets/img/logo.jpg' %} " alt="">  {% endcomment %}
+      <h1>Querkus<span>.</span></h1>
+    </a>
+
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href=" {% url 'home' %} " >Domov</a></li>
+        <li><a href=" {% url 'about_us' %} ">O nas</a></li>
+        <li><a href=" {% url 'services' %} ">Storitve</a></li>
+        <li><a href=" {% url 'contact' %} ">Kontakt</a></li>
+      </ul>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+<section id="about" class="about">
+  <div class="container text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="thank-you-container">
+                <p class="h2">Hvala za zaupanje, <u>{{ name }}</u>!</p>
+                <p class="lead">Kontaktirali vas bomo v kratkem.</p>
+                <a href="{% url 'home' %}" class="btn btn-green">Domov</a>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  </div>
+</section>
+<!-- End About Section -->
+
+
+
+{% endblock %}
