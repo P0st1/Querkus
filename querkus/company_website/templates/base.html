@@ -5,6 +5,15 @@
 <html lang="en">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-30VBVJ0CKD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-30VBVJ0CKD');
+  </script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -13,8 +22,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href=" {% static 'company_website/assets/img/logo.jpg' %} " rel="icon">
-  <link href=" {% static 'company_website/assets/img/apple-touch-icon.png' %} " rel="apple-touch-icon">
+  <link href="{% static 'company_website/assets/img/logo.jpg' %}" rel="icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,35 +30,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href=" {% static 'company_website/assets/vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
-  <link href=" {% static 'company_website/assets/vendor/bootstrap-icons/bootstrap-icons.css' %} " rel="stylesheet">
-  <link href=" {% static 'company_website/assets/vendor/fontawesome-free/css/all.min.css' %} " rel="stylesheet">
-  <link href=" {% static 'company_website/assets/vendor/aos/aos.css' %} " rel="stylesheet">
-  <link href=" {% static 'company_website/assets/vendor/glightbox/css/glightbox.min.css' %} " rel="stylesheet">
-  <link href=" {% static 'company_website/assets/vendor/swiper/swiper-bundle.min.css' %} " rel="stylesheet">
+  <link href="{% static 'company_website/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'company_website/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'company_website/assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'company_website/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'company_website/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'company_website/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href=" {% static 'company_website/assets/css/main.css' %} " rel="stylesheet">
+  <link href= "{% static 'company_website/assets/css/main.css' %}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: UpConstruction
-  * Template URL: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
-{% comment %} {% if messages %}
-  <div class="alert-container">
-    {% for message in messages %}
-      <div class="alert alert-success" role="alert">
-        <i class="fas fa-check-circle"></i> {{ message }}
-      </div>
-    {% endfor %}
-  </div>
-{% endif %} {% endcomment %}
 
   <main>
   {% block content %}
@@ -72,7 +64,7 @@
                 8296 Krmelj<br><br>
                 Vsak delovnik: <strong>7:00 - 17:00</strong><br>
                 <strong>Telefon:</strong> 051 744 453<br>
-                <strong>E-pošta:</strong> koncinajakob@gmail.com<br>
+                <strong>E-pošta:</strong> querkus0@gmail.com<br>
 
               </p>
               <div class="social-links d-flex mt-3">
@@ -96,22 +88,10 @@
             <h4>Storitve</h4>
             <ul>
               {% for service in services%}
-              <li><a href="{% url 'service_detail' service.title %}">{{ service.title }}</a></li>
+              <li><a href="{% url 'service_detail' service.id %}">{{ service.title }}</a></li>
               {% endfor %}
             </ul>
           </div><!-- End footer links column-->
-
-          {% comment %} <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Nobis illum</h4>
-            <ul>
-              <li><a href="#">Ipsam</a></li>
-              <li><a href="#">Laudantium dolorum</a></li>
-              <li><a href="#">Dinera</a></li>
-              <li><a href="#">Trodelas</a></li>
-              <li><a href="#">Flexo</a></li>
-            </ul>
-          </div><!-- End footer links column--> {% endcomment %}
-
         </div>
       </div>
     </div>
@@ -140,15 +120,20 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src=" {% static 'company_website/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
-  <script src=" {% static 'company_website/assets/vendor/aos/aos.js' %} "></script>
-  <script src=" {% static 'company_website/assets/vendor/glightbox/js/glightbox.min.js' %} "></script>
-  <script src=" {% static 'company_website/assets/vendor/isotope-layout/isotope.pkgd.min.js' %} "></script>
-  <script src=" {% static 'company_website/assets/vendor/swiper/swiper-bundle.min.js' %} "></script>
-  <script src=" {% static 'company_website/assets/vendor/purecounter/purecounter_vanilla.js' %} "></script>
+  <script src="{% static 'company_website/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'company_website/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'company_website/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'company_website/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'company_website/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'company_website/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollToFixed/1.4.2/jquery-scrollToFixed.min.js"></script>
+
   {% comment %} <script src=" {% static 'company_website/assets/vendor/php-email-form/validate.js' %} "></script> {% endcomment %}
   <!-- Template Main JS File -->
-  <script src=" {% static 'company_website/assets/js/main.js' %} "></script>
+  <script src= "{% static 'company_website/assets/js/main.js' %}"></script>
+  <script src="{% static 'company_website/assets/js/scrollNavigation.js' %}"></script>
+
   
   {% block extrascripts %}
   {% endblock %}

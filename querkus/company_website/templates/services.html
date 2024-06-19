@@ -7,7 +7,7 @@
 <header id="header" class="header d-flex align-items-center">
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-    <a href=" {% url 'home' %} " class="logo d-flex align-items-center">
+    <a href="{% url 'home' %}" class="logo d-flex align-items-center">
       <!-- Uncomment the line below if you also wish to use an image logo -->
       {% comment %} <img src=" {% static 'company_website/assets/img/logo.jpg' %} " alt="">  {% endcomment %}
       <h1>Querkus<span>.</span></h1>
@@ -17,10 +17,10 @@
     <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a href=" {% url 'home' %} " >Domov</a></li>
-        <li><a href=" {% url 'about_us' %} ">O nas</a></li>
-        <li><a href=" {% url 'services' %} " class="active">Storitve</a></li>
-        <li><a href=" {% url 'contact' %} ">Kontakt</a></li>
+        <li><a href="{% url 'home' %}" >Domov</a></li>
+        <li><a href="{% url 'about_us' %}">O nas</a></li>
+        <li><a href="{% url 'services' %}" class="active">Storitve</a></li>
+        <li><a href="{% url 'contact' %}">Kontakt</a></li>
       </ul>
     </nav><!-- .navbar -->
 
@@ -30,7 +30,7 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url(' {% static 'company_website/assets/img/hero-carousel/drevo3.jpg' %} ');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('{% static 'company_website/assets/img/hero-carousel/drevo3.jpg' %}');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>Storitve</h2>
@@ -61,7 +61,7 @@
               </div>
               <h3>{{ service.title }}</h3>
               <p>{{ service.description }}</p>
-              <a href="{% url 'service_detail' service.title %}" class="readmore stretched-link">Preberite več <i class="bi bi-arrow-right"></i></a>
+              <a href="{% url 'service_detail' service.id %}" class="readmore stretched-link">Preberite več <i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
           {% endfor %}
@@ -120,11 +120,6 @@
         </div>
       </div>
     </section><!-- End Services Cards Section -->
-
-        </div>
-
-      </div>
-    </section><!-- End Servie Cards Section -->
 
     {% endblock %}
   </main><!-- End #main -->

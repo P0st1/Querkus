@@ -72,11 +72,12 @@ def contact(request):
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
+        phone = request.POST['phone']
         subject = request.POST['subject']
         message = request.POST['message']
         
         # Format the email message
-        formatted_message = f"Ime in priimek: {name}\nE-pošta: {email}\nZadeva: {subject}\nSporočilo: {message}"
+        formatted_message = f"Ime in priimek: {name}\nE-pošta: {email}\nTelefonska številka: {phone}\nZadeva: {subject}\nSporočilo: {message}"
         try:
             send_mail(
                 subject="Nova stranka pošilja povpraševanje iz kontaktne strani",
@@ -108,10 +109,15 @@ def services(request):
     }
     return render(request, 'services.html', context)
 
-def service_detail(request, title):
+def service_detail(request, id):
     services = Service.objects.all()
-    service = get_object_or_404(Service, title=title)
-    template_name = service.template  
+    service = get_object_or_404(Service, id=id)
+    template_name = service.template
+    print('1:', template_name)
+    if not template_name.endswith('.html'):
+        print('2')
+        template_name += '.html'
+    print('3:', template_name)
     context = {
         'service': service,
         'services': services,

@@ -9,7 +9,7 @@
 
     <a href=" {% url 'home' %} " class="logo d-flex align-items-center">
       <!-- Uncomment the line below if you also wish to use an image logo -->
-      <img src=" {% static 'company_website/assets/img/logo.png' %} " alt=""> 
+      {% comment %} <img src=" {% static 'company_website/assets/img/logo.png' %} " alt="">  {% endcomment %}
       <h1>Querkus<span>.</span></h1>
     </a>
 
@@ -17,10 +17,10 @@
     <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a href=" {% url 'home' %} " >Domov</a></li>
-        <li><a href=" {% url 'about_us' %} ">O nas</a></li>
-        <li><a href=" {% url 'services' %} ">Storitve</a></li>
-        <li><a href=" {% url 'home' %} " class="active">Kontakt</a></li>
+        <li><a href= "{% url 'home' %}">Domov</a></li>
+        <li><a href= "{% url 'about_us' %}">O nas</a></li>
+        <li><a href= "{% url 'services' %}">Storitve</a></li>
+        <li><a href= "{% url 'home' %}" class="active">Kontakt</a></li>
       </ul>
     </nav><!-- .navbar -->
 
@@ -30,7 +30,7 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url(' {% static 'company_website/assets/img/hero-carousel/drevo3.jpg' %} ');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('{% static 'company_website/assets/img/hero-carousel/drevo3.jpg' %}');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>Kontakt</h2>
@@ -74,19 +74,20 @@
         </div>
 
         <div class="row gy-4 mt-1">
-          <div class="col-lg-6 ">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d204978.25561077407!2d14.946264813123728!3d45.988679374075325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476508afe83cf757%3A0xcc6d1f6fb572a89c!2zUG9samUgcHJpIFRyxb5pxaHEjXUgMTksIDgyOTYgS3JtZWxq!5e0!3m2!1sen!2ssi!4v1715207705698!5m2!1sen!2ssi" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+          <div class="col-lg-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d204978.25561077407!2d14.946264813123728!3d45.988679374075325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476508afe83cf757%3A0xcc6d1f6fb572a89c!2zUG9samUgcHJpIFRyxb5pxaHEjXUgMTksIDgyOTYgS3JtZWxq!5e0!3m2!1sen!2ssi!4v1715207705698!5m2!1sen!2ssi" frameborder="0" style="border:0; width: 100%; height: 100%;" allowfullscreen></iframe>
           </div><!-- End Google Maps -->
           <div class="col-lg-6">
             <form action={% url 'contact' %} method="post" role="form" class="php-email-form">
               {% csrf_token %}
-              <div class="row gy-4">
-                <div class="col-lg-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Vaše ime" required>
-                </div>
-                <div class="col-lg-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Vaša E-pošta" required>
-                </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Vaše ime" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Vaša E-pošta" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="Vaša telefonska številka" required>
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Zadeva" required>

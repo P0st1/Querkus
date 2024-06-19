@@ -1,14 +1,17 @@
 from django.db import models
-from django.utils.text import slugify
 
 # Create your models here.
 class ServiceProcess(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     image = models.ImageField()
+    order = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        ordering = ['order']
       
       
 class Service(models.Model):
@@ -21,7 +24,7 @@ class Service(models.Model):
         ('obrezovanje-zive-meje', 'Obrezovanje žive meje'),
     ]
     template = models.CharField(max_length=100, choices=TEMPLATE_CHOICES)
-
+    
     def __str__(self):
         return self.title
     
